@@ -1,18 +1,12 @@
 "use client";
 
-import {
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer,
-  useMap,
-  useMapEvents,
-} from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import { LeafletMouseEvent } from "leaflet";
 import Image from "next/image";
+import MapSubcomponent from "./MapSubcomponent";
 
 function MapWrapper() {
   function handleClick(event: LeafletMouseEvent) {
@@ -50,6 +44,7 @@ function MapWrapper() {
           </div>
         </Popup>
       </Marker>
+      <MapSubcomponent />
     </MapContainer>
   );
 }
