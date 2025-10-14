@@ -1,20 +1,25 @@
-'use client';
+"use client";
 
-import dynamic from 'next/dynamic';
-import { useMemo } from 'react';
+import dynamic from "next/dynamic";
+import { useMemo } from "react";
 
 function MapDemo() {
-	const MapWrapper = useMemo(() => dynamic(
-		() => import('@/components/MapWrapper'),
-		{ 
-			loading: () => <p>A map is loading</p>,
-			ssr: false
-		}
-	), []);
+  const MapWrapper = useMemo(
+    () =>
+      dynamic(() => import("@/components/MapWrapper"), {
+        loading: () => (
+          <div className="w-[50%] h-[50%] bg-neutral-700 flex items-center justify-center">
+            <p className="text-2xl">
+              <b>Loading...</b>
+            </p>
+          </div>
+        ),
+        ssr: false,
+      }),
+    [],
+  );
 
-	return (
-		<MapWrapper position={[35.155556, -90.051944]} zoom={15} className='w-[50%] h-[50%]'/>
-	);
+  return <MapWrapper />;
 }
 
 export default MapDemo;
