@@ -6,7 +6,7 @@ import { useMemo } from "react";
 function MapDemo() {
   const MapWrapper = useMemo(
     () =>
-      dynamic(() => import("@/components/MapWrapper"), {
+      dynamic(() => import("@/components/map/MapWrapper"), {
         loading: () => (
           <div className="w-[50%] h-[50%] bg-neutral-700 flex items-center justify-center">
             <p className="text-2xl">

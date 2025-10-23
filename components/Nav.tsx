@@ -24,6 +24,12 @@ function Nav() {
           Maps API
         </Link>
         <Link
+          href={"/rest-api"}
+          className="hover:bg-neutral-600 flex items-center px-3"
+        >
+          Restaurant API
+        </Link>
+        <Link
           href={"/mongodb"}
           className="hover:bg-neutral-600 flex items-center px-3"
         >

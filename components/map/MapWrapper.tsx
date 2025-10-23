@@ -50,7 +50,3 @@ function MapWrapper() {
 }
 
 export default MapWrapper;
-
-/*
-
-*/

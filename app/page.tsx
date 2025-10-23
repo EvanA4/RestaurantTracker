@@ -1,22 +1,6 @@
-"use client";
-
 import Nav from "@/components/Nav";
-import { useUser } from "@auth0/nextjs-auth0";
-import Image from "next/image";
 
 export default function Home() {
-  const { user, isLoading } = useUser();
-
-  function getGreeting() {
-    if (isLoading) {
-      return "Loading...";
-    } else if (!user) {
-      return "Sign in!";
-    } else {
-      return `Hello, ${user?.name}!`;
-    }
-  }
-
   return (
     <div className="h-full">
       <Nav />

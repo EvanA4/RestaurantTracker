@@ -1,16 +1,16 @@
 import Nav from "@/components/Nav";
-import UserDemo from "@/components/user/UserDemo";
+import RestDemo from "@/components/rest/RestDemo";
 import React from "react";
 
-function UserAuth() {
+function MapsPage() {
   return (
     <div className="h-full">
       <Nav />
       <div className="h-full flex flex-col items-center justify-center">
-        <UserDemo />
+        <RestDemo />
       </div>
     </div>
   );
 }
 
-export default UserAuth;
+export default MapsPage;

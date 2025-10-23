@@ -1,4 +1,4 @@
-import MapDemo from "@/components/MapDemo";
+import MapDemo from "@/components/rest/RestDemo";
 import Nav from "@/components/Nav";
 import React from "react";
 
