@@ -1,15 +1,16 @@
-import Nav from "@/components/Nav";
+import Nav from "@/components/general/DemoNav";
+import UserDemo from "@/components/user/UserDemo";
 import React from "react";
 
-function MongoPage() {
+function UserAuth() {
   return (
     <div className="h-full">
       <Nav />
       <div className="h-full flex flex-col items-center justify-center">
-        <p>MongoDB Page</p>
+        <UserDemo />
       </div>
     </div>
   );
 }
 
-export default MongoPage;
+export default UserAuth;

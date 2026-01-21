@@ -12,25 +12,25 @@ function Nav() {
           Home
         </Link>
         <Link
-          href={"/user-auth"}
+          href={"/demos/user-auth"}
           className="hover:bg-neutral-600 flex items-center px-3"
         >
           User Auth
         </Link>
         <Link
-          href={"/maps-api"}
+          href={"/demos/maps-api"}
           className="hover:bg-neutral-600 flex items-center px-3"
         >
           Maps API
         </Link>
         <Link
-          href={"/rest-api"}
+          href={"/demos/rest-api"}
           className="hover:bg-neutral-600 flex items-center px-3"
         >
           Restaurant API
         </Link>
         <Link
-          href={"/mongodb"}
+          href={"/demos/mongodb"}
           className="hover:bg-neutral-600 flex items-center px-3"
         >
           MongoDB

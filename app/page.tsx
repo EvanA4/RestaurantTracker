@@ -1,17 +1,16 @@
-import Nav from "@/components/Nav";
+import HomeSearch from "@/components/forms/HomeSearch";
+import Nav from "@/components/general/Nav";
 
 export default function Home() {
   return (
-    <div className="h-full">
+    <div className="h-full relative p-10">
+      {/* User's search parameters */}
+      <HomeSearch />
+
+      {/* Actual site content */}
+
+      {/* Navbar */}
       <Nav />
-      <div className="flex flex-col items-center justify-center gap-5 h-full">
-        <div>
-          <p className="text-3xl text-center">Restaurant Tracker</p>
-          <p className="text-neutral-400 text-center">
-            This is just a proof of concept. Explore the demos in the nav bar!
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
