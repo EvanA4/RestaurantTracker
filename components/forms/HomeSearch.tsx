@@ -12,7 +12,7 @@ function HomeSearch() {
   }
 
   return (
-    <>
+    <div>
       <div className="flex gap-3">
         <input
           type="text"
@@ -41,7 +41,7 @@ function HomeSearch() {
         visible={showSelectRest}
         setVisibile={setShowSelectRest}
       />
-    </>
+    </div>
   );
 }
 
