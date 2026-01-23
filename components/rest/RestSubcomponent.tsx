@@ -6,7 +6,7 @@ import { useMapEvents } from "react-leaflet";
 function RestSubcomponent(props: {
   onClick: (lat: number, lng: number) => void;
 }) {
-  const map = useMapEvents({
+  useMapEvents({
     click(e) {
       props.onClick(e.latlng.lat, e.latlng.lng);
     },
