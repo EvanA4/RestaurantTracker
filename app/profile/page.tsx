@@ -1,11 +1,18 @@
 import Nav from "@/components/general/Nav";
+import ProfileTabsNav from "@/components/profile/ProfileTabsNav";
 import React from "react";
 
 function Profile() {
   return (
-    <div className="h-full relative p-10">
-      Epic profile page
-      {/* Navbar */}
+    <div className="h-full relative">
+      {/* Top Profile Tabs Navbar */}
+      <ProfileTabsNav />
+
+      {/* Content (pushed down so it does not hide behind the top navbar) */}
+      <div className="pt-20 h-full flex items-center justify-center">
+        <div className="p-10">Epic profile page</div>
+      </div>
+      {/* Bottom Navbar */}
       <Nav />
     </div>
   );
