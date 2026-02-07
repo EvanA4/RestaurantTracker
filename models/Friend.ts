@@ -16,13 +16,6 @@ const FriendSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  requestedAt: {
-    type: Date,
-    default: Date.now,
-  },
-  acceptedAt: {
-    type: Date,
-  },
 });
 
 export type FriendDocument = Friend & Document;
