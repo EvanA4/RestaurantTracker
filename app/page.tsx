@@ -12,21 +12,21 @@ export default function Home() {
   }
 
   return (
-    <div className="h-full relative p-10 flex flex-col gap-10">
+    <div className="h-full relative flex flex-col gap-10">
       {/* User's search parameters */}
       <HomeSearch />
 
       {/* Reviews display */}
-      <div className="flex gap-5 overflow-x-scroll scrollbar-none">
+      <div className="scrollbar-none px-10 overflow-x-scroll flex gap-5 pb-3">
         {...reviews}
       </div>
 
       {/* Restaurants display */}
-      <div>
+      <div className="pl-10">
         <p className="mb-3">
           <b className="text-3xl">Restaurants</b>
         </p>
-        <div className="flex gap-5 overflow-x-scroll scrollbar-none">
+        <div className="flex gap-5 overflow-x-scroll scrollbar-none pb-3 pr-10">
           {...rests}
         </div>
       </div>

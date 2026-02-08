@@ -4,7 +4,7 @@ import Rating from "./Rating";
 
 function ReviewCard(props: { rating: number }) {
   return (
-    <div className="min-w-[300px] h-[400px] rounded-xl overflow-hidden relative">
+    <div className="min-w-[300px] h-[400px] rounded-xl overflow-hidden relative shadow-lg">
       <Image
         src="/mcdonalds.jpg"
         width={300}
