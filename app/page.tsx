@@ -22,11 +22,11 @@ export default function Home() {
       </div>
 
       {/* Restaurants display */}
-      <div className="pl-10">
-        <p className="mb-3">
+      <div>
+        <p className="pl-10">
           <b className="text-3xl">Restaurants</b>
         </p>
-        <div className="flex gap-5 overflow-x-scroll scrollbar-none pb-3 pr-10">
+        <div className="flex gap-5 overflow-x-scroll scrollbar-none pb-3 px-10">
           {...rests}
         </div>
       </div>

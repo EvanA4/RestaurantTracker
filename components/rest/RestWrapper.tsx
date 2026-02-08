@@ -53,7 +53,7 @@ function RestWrapper() {
               {rest.phone && (
                 <div className="flex gap-5 items-center mt-3">
                   <Image
-                    src="/phone.svg"
+                    src="/svgs/phone.svg"
                     width={20}
                     height={20}
                     alt="fish meme"
