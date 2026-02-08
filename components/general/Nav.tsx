@@ -10,9 +10,8 @@ function Nav() {
           src="/logo.png"
           width={356}
           height={156}
-          objectFit="contain"
           alt="Savorly logo"
-          style={{ height: "100%", width: "auto" }}
+          style={{ height: "100%", width: "auto", objectFit: "contain" }}
         />
         <div className="flex px-10">
           <Link

@@ -7,9 +7,12 @@ function ReviewCard(props: { rating: number }) {
     <div className="min-w-[300px] h-[400px] rounded-xl overflow-hidden relative shadow-lg">
       <Image
         src="/mcdonalds.jpg"
-        width={300}
-        height={400}
+        width={0}
+        height={0}
         alt="restaurant pic"
+        unoptimized
+        priority
+        style={{ width: "300px", height: "auto", objectFit: "contain" }}
       />
       <div className="w-full h-[250px] bg-white absolute bottom-0 left-0 rounded-xl text-black p-5">
         <div className="flex justify-between">
