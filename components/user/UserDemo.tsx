@@ -19,7 +19,7 @@ function UserDemo() {
 
   return (
     <>
-      <div className="p-5 bg-neutral-800 rounded-3xl">
+      <div className="p-5 bg-neutral-200 rounded-3xl">
         {user && (
           <Image
             src={user.picture ?? ""}

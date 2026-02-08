@@ -8,7 +8,7 @@ function MapDemo() {
     () =>
       dynamic(() => import("@/components/map/MapWrapper"), {
         loading: () => (
-          <div className="w-[50%] h-[50%] bg-neutral-700 flex items-center justify-center">
+          <div className="w-[50%] h-[50%] bg-neutral-200 flex items-center justify-center">
             <p className="text-2xl">
               <b>Loading...</b>
             </p>

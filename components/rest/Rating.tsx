@@ -14,9 +14,14 @@ function Rating(props: { value: number }) {
     stars.push(
       <Image
         src="/svgs/ystar.svg"
-        width={HEIGHT}
-        height={HEIGHT}
+        width={0}
+        height={0}
         alt="yellow star"
+        style={{
+          width: `${HEIGHT}px`,
+          height: `${HEIGHT}px`,
+          objectFit: "contain",
+        }}
       />,
     );
   }
@@ -24,18 +29,28 @@ function Rating(props: { value: number }) {
     stars.push(
       <Image
         src="/svgs/hstar.svg"
-        width={HEIGHT}
-        height={HEIGHT}
+        width={0}
+        height={0}
         alt="half star"
+        style={{
+          width: `${HEIGHT}px`,
+          height: `${HEIGHT}px`,
+          objectFit: "contain",
+        }}
       />,
     );
   for (let i = 0; i < emptyStars; ++i) {
     stars.push(
       <Image
         src="/svgs/bstar.svg"
-        width={HEIGHT}
-        height={HEIGHT}
+        width={0}
+        height={0}
         alt="black star"
+        style={{
+          width: `${HEIGHT}px`,
+          height: `${HEIGHT}px`,
+          objectFit: "contain",
+        }}
       />,
     );
   }
