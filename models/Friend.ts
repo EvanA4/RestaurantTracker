@@ -19,5 +19,8 @@ const FriendSchema = new Schema({
 });
 
 export type FriendDocument = Friend & Document;
-export default (models.Friend as Model<FriendDocument>) ||
+const FriendModel =
+  (models.Friend as Model<FriendDocument>) ||
   model<FriendDocument>("Friend", FriendSchema);
+
+export default FriendModel;
