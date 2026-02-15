@@ -1,6 +1,6 @@
 "use client";
 
-import Nav from "@/components/general/DemoNav";
+import DemoNav from "@/components/general/DemoNav";
 import { IMovie } from "@/models/Movie";
 import React, { useEffect, useState } from "react";
 
@@ -19,7 +19,7 @@ function MongoPage() {
 
   return (
     <div className="h-full">
-      <Nav />
+      <DemoNav />
       <div className="h-full flex flex-col items-center justify-center">
         <p>You should see some movies below!</p>
         <div className="w-[50%] flex flex-col gap-3 mt-5">

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-function Nav() {
+function DemoNav() {
   return (
     <div className="h-0">
       <div className="h-[50px] bg-[#f2f2f2] flex px-10">
@@ -35,9 +35,15 @@ function Nav() {
         >
           MongoDB
         </Link>
+        <Link
+          href={"/demos/images-api"}
+          className="hover:bg-neutral-200 flex items-center px-3"
+        >
+          Images API
+        </Link>
       </div>
     </div>
   );
 }
 
-export default Nav;
+export default DemoNav;

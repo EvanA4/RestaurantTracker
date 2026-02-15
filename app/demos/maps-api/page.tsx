@@ -1,11 +1,11 @@
 import MapDemo from "@/components/map/MapDemo";
-import Nav from "@/components/general/DemoNav";
 import React from "react";
+import DemoNav from "@/components/general/DemoNav";
 
 function MapsPage() {
   return (
     <div className="h-full">
-      <Nav />
+      <DemoNav />
       <div className="h-full flex flex-col items-center justify-center">
         <MapDemo />
       </div>
