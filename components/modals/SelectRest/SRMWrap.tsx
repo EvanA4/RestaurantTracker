@@ -6,9 +6,9 @@ import { useMemo } from "react";
 function SRMWrap() {
   const SRMMap = useMemo(
     () =>
-      dynamic(() => import("@/components/modals/SRMMap"), {
+      dynamic(() => import("@/components/modals/SelectRest/SRMMap"), {
         loading: () => (
-          <div className="w-full h-full flex items-center justify-center">
+          <div className="w-full h-full flex items-center justify-center bg-neutral-200">
             <p className="text-2xl">
               <b>Loading...</b>
             </p>

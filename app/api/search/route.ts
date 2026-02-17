@@ -9,6 +9,9 @@ export const POST = async function (req: NextRequest) {
   } = await req.json();
   console.log(body);
 
+  // To search with a query string, just add a q search param:
+  // https://api.mapbox.com/search/searchbox/v1/forward?q=mcdonalds&proximity=-73.990593%2C40.740121&access_token=YOUR_MAPBOX_ACCESS_TOKEN
+
   const rawRes = await fetch(
     "https://api.mapbox.com/search/searchbox/v1/category/restaurant?" +
       new URLSearchParams({

@@ -7,7 +7,7 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
-import RestSubcomponent from "../rest/RestSubcomponent";
+import RestSubcomponent from "../../rest/RestSubcomponent";
 
 function SRMMap() {
   const [rests, setRests] = useState<Restaurant[]>([]);

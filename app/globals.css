@@ -8,6 +8,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --breakpoint-3xl: 112rem;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;

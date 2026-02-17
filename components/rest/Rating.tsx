@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 function Rating(props: { value: number }) {
-  const HEIGHT = 20;
+  const HEIGHT = 18;
 
   const rating = props.value;
   const fullStars = rating - (rating % 1);

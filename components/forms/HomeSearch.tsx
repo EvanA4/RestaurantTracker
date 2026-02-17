@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import SelectRestModal from "../modals/SelectRestModal";
+import SelectRestModal from "../modals/SelectRest/SelectRestModal";
 
 function HomeSearch() {
   const [searchStr, setSearchStr] = useState("");

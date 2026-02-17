@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Modal from "../general/Modal";
+import Modal from "../../general/Modal";
 import Image from "next/image";
 import SRMWrap from "./SRMWrap";
 
