@@ -14,15 +14,15 @@ function HomeSearch() {
   return (
     <div className="bg-[#f2f2f2] px-10 pt-[60px] border-b-2 border-b-neutral-200">
       <p className="pt-5 text-2xl">Find the best restaurants and food spots.</p>
-      <div className="flex gap-3 mt-2">
+      <div className="flex w-[50%] rounded-xl overflow-hidden mt-2">
         <input
           type="text"
-          className="bg-white shadow-md outline-none p-2 rounded-xl w-full"
+          className="bg-white shadow-md outline-none p-3 w-full"
           placeholder="Search post, restaurant, user..."
           onChange={(e) => setSearchStr(e.target.value)}
         />
         <button
-          className="bg-blue-600 hover:bg-blue-500 px-3 py-2 rounded-xl cursor-pointer text-white"
+          className="bg-blue-600 hover:bg-blue-500 px-3 py-2 cursor-pointer text-white"
           onClick={handleSearch}
         >
           Search

@@ -7,7 +7,7 @@ export const POST = async function (req: NextRequest) {
     lat: number;
     lng: number;
   } = await req.json();
-  console.log(body);
+  // console.log(body);
 
   // To search with a query string, just add a q search param:
   // https://api.mapbox.com/search/searchbox/v1/forward?q=mcdonalds&proximity=-73.990593%2C40.740121&access_token=YOUR_MAPBOX_ACCESS_TOKEN
@@ -30,7 +30,7 @@ export const POST = async function (req: NextRequest) {
     lng: val.geometry.coordinates[0],
     lat: val.geometry.coordinates[1],
   }));
-  console.log(restaurants);
+  // console.log(restaurants);
 
   return NextResponse.json(restaurants, { status: 200 });
 };

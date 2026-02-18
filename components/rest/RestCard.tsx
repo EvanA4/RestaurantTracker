@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function RestCard(props: { rating: number }) {
   return (
-    <div className="min-w-[16%] rounded-xl overflow-hidden shadow-lg">
+    <div className="min-w-[22%] w-[22%] rounded-xl overflow-hidden shadow-lg">
       <Image
         src="/mcdonalds.jpg"
         width={0}
@@ -14,7 +14,7 @@ function RestCard(props: { rating: number }) {
         priority
         style={{ width: "100%", height: "40%", objectFit: "cover" }}
       />
-      <div className="w-full h-[250px] bg-white bottom-0 left-0 rounded-xl text-neutral-600 p-5 flex flex-col gap-3">
+      <div className="w-full h-[250px] bg-white bottom-0 left-0 text-neutral-600 p-5 flex flex-col gap-3">
         <b className="text-black">McDonald&apos;s</b>
         <div className="flex items-center gap-3">
           <Rating value={props.rating} />
