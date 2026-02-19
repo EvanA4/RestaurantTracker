@@ -18,7 +18,7 @@ function SelectRestModal(props: {
         </div>
 
         {/* Corner button */}
-        <button
+        {/* <button
           className="absolute top-[5%] right-[5%] cursor-pointer opacity-70 hover:opacity-100 z-[400]"
           onClick={() => props.setVisibile(false)}
         >
@@ -31,7 +31,7 @@ function SelectRestModal(props: {
               className="rotate-45"
             />
           </div>
-        </button>
+        </button> */}
       </div>
     </Modal>
   );

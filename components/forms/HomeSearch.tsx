@@ -12,7 +12,7 @@ function HomeSearch() {
   }
 
   return (
-    <div className="bg-[#f2f2f2] px-10 pt-[60px] border-b-2 border-b-neutral-200">
+    <div className="bg-[#f2f2f2] px-10 pt-[60px] border-b-2 border-b-neutral-200 pb-5">
       <p className="pt-5 text-2xl">Find the best restaurants and food spots.</p>
       <div className="flex w-[50%] rounded-xl overflow-hidden mt-2">
         <input
@@ -29,14 +29,12 @@ function HomeSearch() {
         </button>
       </div>
 
-      <div className="flex gap-3 py-5">
-        <button
-          className="bg-red-700 hover:bg-red-600 px-3 py-2 rounded-xl cursor-pointer text-white"
-          onClick={() => setShowSelectRest((prev) => !prev)}
-        >
-          Select Restaurant
-        </button>
-      </div>
+      <button
+        className="bg-red-700 hover:bg-red-600 px-3 py-2 rounded-xl cursor-pointer text-white block 2xl:hidden mt-5"
+        onClick={() => setShowSelectRest((prev) => !prev)}
+      >
+        Select Restaurant
+      </button>
 
       <SelectRestModal
         visible={showSelectRest}

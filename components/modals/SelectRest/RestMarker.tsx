@@ -10,9 +10,6 @@ function RestMarker(props: { rest: Restaurant }) {
       <a href={`/restaurant?id=${rest.id}`}>
         <span className="text-xl m-0 p-0 block text-black">{rest.name}</span>
       </a>
-      {/* <span className="block text-neutral-500">
-            {rest.lat.toFixed(3)}, {rest.lng.toFixed(3)}
-            </span> */}
       {rest.phone && (
         <div className="flex gap-5 items-center mt-3 opacity-60">
           <Image src="/svgs/phone.svg" width={20} height={20} alt="phone" />
