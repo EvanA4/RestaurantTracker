@@ -54,7 +54,7 @@ function Profile() {
           <div className="border-1 border-b-0 border-gray-300">
             <p className="p-2 text-lg">Friends</p>
           </div>
-          <div className="overflow-y-scroll !h-100 scrollbar-none divide-solid divide-y divide-gray-300 border-1 border-gray-300">
+          <div className="overflow-y-scroll !h-115 scrollbar-none divide-solid divide-y divide-gray-300 border-1 border-gray-300">
             {...friends}
           </div>
         </div>
@@ -63,7 +63,7 @@ function Profile() {
           <div className="border-1 border-b-0 border-gray-300">
             <p className="p-2 text-lg">Invites</p>
           </div>
-          <div className="overflow-y-scroll !h-100 scrollbar-none divide-solid divide-y divide-gray-300 border-1 border-gray-300">
+          <div className="overflow-y-scroll !h-115 scrollbar-none divide-solid divide-y divide-gray-300 border-1 border-gray-300">
             <p className="p-2 text-md">Sent Invites</p>
             {...sent}
             <p className="p-2 text-md">Pending Invites</p>
