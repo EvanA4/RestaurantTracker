@@ -12,28 +12,47 @@ import { sleep } from "@/utils/sleep";
 import Image from "next/image";
 import MultiSelectDD from "@/components/general/MultiSelectDD";
 import SingleSelectDD from "@/components/general/SingleSelectDD";
+import { Map } from "leaflet";
 
 function SRMMap() {
   const [rests, setRests] = useState<Restaurant[]>([]);
-  const options = ["Option 1", "Option 2", "Option 3", "Option 4"];
+  const cuisines = ["All cuisines", ...RESTAURANT_TYPES];
+  const restrictions = ["Option 1", "Option 2", "Option 3", "Option 4"];
   const [selRestricts, setSelRestricts] = useState<boolean[]>(
-    Array(options.length).fill(false),
+    Array(restrictions.length).fill(false),
   );
   const [selCuisine, setSelCuisine] = useState<number>(0);
   const [searchStr, setSearchStr] = useState<string>("");
   const isMarkerOpen = useRef(false);
+  const [map, setMap] = useState<Map | undefined>(undefined);
 
   async function handleSearch() {
     console.log("Searching!");
+    if (map) {
+      const mapCenter = map.getCenter();
+      console.log({
+        searchStr: searchStr,
+        lat: mapCenter.lat,
+        lng: mapCenter.lng,
+        cuisine: cuisines[selCuisine],
+        restrictions: selRestricts
+          .map((val, idx) => (val ? restrictions[idx] : undefined))
+          .filter((val) => val),
+      });
+    }
   }
 
-  async function handleClick(lat: number, lng: number) {
+  async function handleClick(mouseLat: number, mouseLng: number) {
     if (!isMarkerOpen.current) {
       const rawRes = await fetch("/api/search", {
         method: "POST",
         body: JSON.stringify({
-          lat,
-          lng,
+          lat: mouseLat,
+          lng: mouseLng,
+          cuisine: cuisines[selCuisine],
+          restrictions: selRestricts
+            .map((val, idx) => (val ? restrictions[idx] : undefined))
+            .filter((val) => val),
         }),
       });
       const res: Restaurant[] = await rawRes.json();
@@ -70,12 +89,12 @@ function SRMMap() {
         </div>
         <div className="w-[35%] flex flex-col gap-3">
           <SingleSelectDD
-            options={["All cuisines", ...RESTAURANT_TYPES]}
+            options={cuisines}
             selected={selCuisine}
             setSelected={setSelCuisine}
           />
           <MultiSelectDD
-            options={options}
+            options={restrictions}
             selected={selRestricts}
             setSelected={setSelRestricts}
             formatStr="%d restriction(s)"
@@ -83,8 +102,8 @@ function SRMMap() {
         </div>
       </div>
       <MapContainer
-        center={[35.155856, -90.051944]}
-        zoom={16}
+        center={[35.95077372972164, -83.93390908189826]}
+        zoom={14}
         scrollWheelZoom={true}
         className="w-full h-full"
       >
@@ -100,6 +119,7 @@ function SRMMap() {
           </Marker>
         ))}
         <RestSubcomponent
+          setMap={setMap}
           onClick={handleClick}
           onPopupOpen={handlePopupOpen}
           onPopupClose={handlePopupClose}

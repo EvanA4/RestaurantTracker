@@ -1,7 +1,13 @@
 export type MapBoxResponse = {
-  type: string;
-  attribution: string;
-  features: MapBoxFeature[];
+  type?: string;
+  attribution?: string;
+  features?: MapBoxFeature[];
+  message?: {
+    status_code: number;
+    error: string;
+    version: string;
+    code: string;
+  };
 };
 
 export type MapBoxFeature = {

@@ -22,15 +22,21 @@ export const POST = async function (req: NextRequest) {
       }),
   );
   const res: MapBoxResponse = await rawRes.json();
-  const restaurants: Restaurant[] = res.features.map((val) => ({
-    id: val.properties.mapbox_id,
-    name: val.properties.name,
-    website: val.properties.metadata?.website,
-    phone: val.properties.metadata?.phone,
-    lng: val.geometry.coordinates[0],
-    lat: val.geometry.coordinates[1],
-  }));
-  // console.log(restaurants);
+  // console.log(res);
 
-  return NextResponse.json(restaurants, { status: 200 });
+  if (res.features) {
+    const restaurants: Restaurant[] = res.features.map((val) => ({
+      id: val.properties.mapbox_id,
+      name: val.properties.name,
+      website: val.properties.metadata?.website,
+      phone: val.properties.metadata?.phone,
+      lng: val.geometry.coordinates[0],
+      lat: val.geometry.coordinates[1],
+    }));
+    // console.log(restaurants);
+
+    return NextResponse.json(restaurants, { status: 200 });
+  }
+
+  return NextResponse.json([], { status: 200 });
 };
