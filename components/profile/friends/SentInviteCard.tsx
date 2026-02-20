@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { MAPIUser } from "@/types/auth0/mapi_user";
 
-type FriendCardProps = {
+type SentInviteProps = {
   friend?: MAPIUser;
 };
 
-export default function FriendCard({ friend }: FriendCardProps) {
+export default function SentInviteCard({ friend }: SentInviteProps) {
   return (
     <div className="h-25 flex flex-row items-center">
       <div className="flex-none">
@@ -23,13 +23,18 @@ export default function FriendCard({ friend }: FriendCardProps) {
         <p className="text-md flex-none pt-2 pb-1">{friend?.name}</p>
         <p className="text-gray-500 !text-sm/4 line-clamp-2">Bob likes food</p>
         <p className="text-gray-500 text-xs flex-none mt-auto pb-1">
-          42 reviews
+          Sent 1 day ago
         </p>
       </div>
       <div className="ml-auto flex-none pr-4 pl-1">
-        <button className="rounded-md bg-gray-100 h-fit px-2 cursor-pointer hover:bg-gray-300 border-1 border-gray-300">
-          Remove Friend
-        </button>
+        <div className="flex gap-3">
+          <button className="rounded-md bg-gray-100 h-fit px-2 cursor-pointer hover:bg-gray-300 border-1 border-gray-300">
+            Cancel
+          </button>
+          <button className="rounded-md bg-gray-100 h-fit px-2 cursor-pointer hover:bg-gray-300 border-1 border-gray-300">
+            Resend
+          </button>
+        </div>
       </div>
     </div>
   );
