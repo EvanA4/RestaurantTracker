@@ -2,7 +2,7 @@
 
 import React from "react";
 import Modal from "../../general/Modal";
-import Image from "next/image";
+// import Image from "next/image";
 import SRMWrap from "./SRMWrap";
 
 function SelectRestModal(props: {
@@ -11,7 +11,7 @@ function SelectRestModal(props: {
 }) {
   return (
     <Modal visible={props.visible} setVisibile={props.setVisibile} centered>
-      <div className="bg-neutral-800 w-[30vw] h-[30vw] rounded-3xl relative overflow-hidden">
+      <div className="bg-neutral-800 w-[95vw] md:w-[80vw] 3xl:w-[50vw] h-[70vh] rounded-3xl relative overflow-hidden shadow-xl">
         {/* Background map component */}
         <div className="h-full">
           <SRMWrap />

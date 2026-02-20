@@ -10,20 +10,22 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-full relative flex flex-col gap-10">
+    <div className="min-h-full relative flex flex-col gap-5 md:gap-10">
       {/* User's search parameters */}
       <HomeSearch />
 
       {/* Restaurants display */}
-      <div className="2xl:grid 2xl:grid-cols-7">
-        <div className="col-span-5">
-          <p className="pl-15 mb-5 text-3xl">Popular Restaurants</p>
-          <div className="flex 2xl:flex-wrap gap-5 overflow-x-scroll scrollbar-none pb-3 px-10">
+      <div className="xl:grid grid-cols-3 2xl:grid-cols-7 pb-15">
+        <div className="col-span-2 2xl:col-span-5">
+          <p className="pl-15 mb-3 md:mb-5 text-2xl md:text-3xl">
+            Popular Restaurants
+          </p>
+          <div className="flex xl:flex-wrap gap-5 overflow-x-scroll scrollbar-none pb-3 px-10">
             {...rests}
           </div>
         </div>
 
-        <div className="hidden 2xl:block w-full h-full col-span-2 relative">
+        <div className="hidden xl:block w-full h-full 2xl:col-span-2 relative">
           <StickyRestSelect />
         </div>
       </div>

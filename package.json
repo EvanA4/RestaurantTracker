@@ -52,7 +52,7 @@
     "lint-staged": "^16.2.4",
     "prettier": "^3.6.2",
     "tailwind-scrollbar": "^4.0.2",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.2.0",
     "typescript": "^5"
   }
 }

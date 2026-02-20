@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function RestCard(props: { rating: number }) {
   return (
-    <div className="min-w-[22%] w-[22%] rounded-xl overflow-hidden shadow-lg">
+    <div className="min-w-[250px] w-[22%] rounded-xl overflow-hidden shadow-lg">
       <Image
         src="/mcdonalds.jpg"
         width={0}

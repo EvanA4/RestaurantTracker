@@ -1,117 +1,13 @@
-"use client";
-import { useUser } from "@auth0/nextjs-auth0";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
+import TopNav from "./TopNav";
+import BottomNav from "./BottomNav";
 
 function Nav() {
-  const { user, isLoading } = useUser();
-  const [showSignIn, setShowSignIn] = useState(false);
-
   return (
-    <div className="w-full fixed top-0 left-0">
-      <div className="h-[60px] bg-[#f2f2f2] flex justify-between items-center border-b-2 border-b-neutral-200 z-10">
-        <Image
-          src="/logo.png"
-          width={1264}
-          height={438}
-          alt="Savorly logo"
-          style={{ height: "80%", width: "auto", objectFit: "contain" }}
-          className="pl-3"
-        />
-        <div className="flex px-10 h-full">
-          <Link
-            href={"/"}
-            className="hover:bg-neutral-200 transition-colors duration-200 pt-[2px] border-b-2 border-b-neutral-100 hover:border-b-blue-500 flex items-center px-3 z-20"
-          >
-            Home
-          </Link>
-          <Link
-            href={"/collections"}
-            className="hover:bg-neutral-200 transition-colors duration-200 pt-[2px] border-b-2 border-b-neutral-100 hover:border-b-blue-500 flex items-center px-3 z-20"
-          >
-            Collections
-          </Link>
-          <Link
-            href={"/friends"}
-            className="hover:bg-neutral-200 transition-colors duration-200 pt-[2px] border-b-2 border-b-neutral-100 hover:border-b-blue-500 flex items-center px-3 z-20"
-          >
-            Friends
-          </Link>
-          <Link
-            href={"/demos"}
-            className="hover:bg-neutral-200 transition-colors duration-200 pt-[2px] border-b-2 border-b-neutral-100 hover:border-b-blue-500 flex items-center px-3 z-20"
-          >
-            Demos
-          </Link>
-          <Link
-            href={"/posts"}
-            className="hover:bg-neutral-200 transition-colors duration-200 pt-[2px] border-b-2 border-b-neutral-100 hover:border-b-blue-500 flex items-center px-3 z-20"
-          >
-            Profile
-          </Link>
-
-          <div className="relative h-full">
-            <button
-              className="p-2 border-b-2 border-b-neutral-100 hover:border-b-blue-500 hover:bg-neutral-200 flex gap-2 items-center h-full"
-              onClick={() => setShowSignIn((prev) => !prev)}
-            >
-              {user ? (
-                <Image
-                  src={user.picture ?? ""}
-                  alt={user.name ?? ""}
-                  width={100}
-                  height={100}
-                  priority
-                  className="h-full w-auto object-contain rounded-full"
-                />
-              ) : (
-                <Image
-                  src="/profile.png"
-                  alt="default profile"
-                  width={128}
-                  height={128}
-                  priority
-                  className="h-full w-auto object-contain rounded-full opacity-70"
-                />
-              )}
-
-              <Image
-                src="/svgs/droparrow.svg"
-                alt="drop down"
-                width={0}
-                height={0}
-                unoptimized
-                className={
-                  "h-[70%] w-auto object-contain opacity-70 transition-transform duration-200 " +
-                  (showSignIn ? "rotate-180" : "")
-                }
-              />
-            </button>
-
-            <div
-              className={
-                "absolute w-full bottom-0 right-0 translate-y-[100%] rounded-b-2xl shadow-2xl transition-all duration-200 overflow-hidden " +
-                (showSignIn ? "h-[80px]" : "h-0")
-              }
-            >
-              <a
-                href={"/profile"}
-                className="block bg-neutral-200 hover:bg-neutral-300 w-full text-center py-2"
-              >
-                Account
-              </a>
-              <a
-                href={isLoading ? "" : user ? "/auth/logout" : "/auth/login"}
-                className="block bg-neutral-200 hover:bg-neutral-300 w-full text-center py-2"
-              >
-                {isLoading ? "" : user ? "Log out" : "Log in"}
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <TopNav />
+      <BottomNav />
+    </>
   );
 }
 

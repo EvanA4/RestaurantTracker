@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Modal from "./Modal";
 
 // Multi-select drop-down input
 function SingleSelectDD(props: {
@@ -38,7 +37,7 @@ function SingleSelectDD(props: {
       <button
         ref={btnRef}
         className={
-          "bg-blue-200 hover:bg-blue-300 px-3 py-2 rounded-xl z-[402] relative w-full " +
+          "bg-blue-200 hover:bg-blue-300 px-3 py-2 rounded-xl z-[402] relative w-full text-[12px] sm:text-[14px] md:text-[16px] " +
           (showOptions && "rounded-b-none")
         }
         onClick={() => setShowOptions((prev) => !prev)}

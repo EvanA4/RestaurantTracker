@@ -14,7 +14,7 @@ function HomeSearch() {
   return (
     <div className="bg-[#f2f2f2] px-10 pt-[60px] border-b-2 border-b-neutral-200 pb-5">
       <p className="pt-5 text-2xl">Find the best restaurants and food spots.</p>
-      <div className="flex w-[50%] rounded-xl overflow-hidden mt-2">
+      <div className="flex w-full xl:w-[50%] rounded-xl overflow-hidden mt-2">
         <input
           type="text"
           className="bg-white shadow-md outline-none p-3 w-full"
@@ -30,7 +30,7 @@ function HomeSearch() {
       </div>
 
       <button
-        className="bg-red-700 hover:bg-red-600 px-3 py-2 rounded-xl cursor-pointer text-white block 2xl:hidden mt-5"
+        className="bg-red-700 hover:bg-red-600 px-3 py-2 rounded-xl cursor-pointer text-white block xl:hidden mt-5"
         onClick={() => setShowSelectRest((prev) => !prev)}
       >
         Select Restaurant
