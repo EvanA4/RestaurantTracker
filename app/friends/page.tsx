@@ -12,7 +12,7 @@ function Profile() {
   const sent = [];
   const pending = [];
   const placeholderFriend: MAPIUser = {
-    picture: "/favicon.ico",
+    picture: "/profile.png",
     name: "Bob",
     user_id: "",
     nickname: "",
@@ -45,7 +45,7 @@ function Profile() {
   return (
     <div className="h-full relative">
       <div>
-        <p className="pt-[75px] pl-[10px] text-2xl border-b-1 border-b-gray-300">
+        <p className="pt-[75px] pl-4 pb-4 text-2xl border-b-1 border-b-gray-300">
           Friends
         </p>
       </div>
@@ -63,10 +63,14 @@ function Profile() {
           <div className="border-1 border-b-0 border-gray-300">
             <p className="p-2 text-lg">Invites</p>
           </div>
-          <div className="overflow-y-scroll !h-115 scrollbar-none divide-solid divide-y divide-gray-300 border-1 border-gray-300">
-            <p className="p-2 text-md">Sent Invites</p>
+          <div className="overflow-y-scroll !h-115 scrollbar-none divide-solid divide-y divide-gray-300 border-1 border-gray-300 relative">
+            <p className="p-2 text-md sticky top-0 left-0 bg-white">
+              Sent Invites
+            </p>
             {...sent}
-            <p className="p-2 text-md">Pending Invites</p>
+            <p className="p-2 text-md sticky top-0 left-0 bg-white">
+              Pending Invites
+            </p>
             {...pending}
           </div>
         </div>

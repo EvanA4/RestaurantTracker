@@ -10,13 +10,13 @@ export default function FriendCard({ friend }: FriendCardProps) {
     <div className="h-25 flex flex-row items-center">
       <div className="flex-none">
         <Image
-          src={friend?.picture ?? ""}
+          src={friend?.picture ?? "/profile.png"}
           alt={friend?.name ?? ""}
-          width={20}
-          height={20}
+          width={0}
+          height={0}
           priority
-          className="h-20 w-20 p-[5px] rounded-full"
-          style={{ objectFit: "contain" }}
+          unoptimized
+          className="h-20 w-20 p-[5px] rounded-full object-contain"
         />
       </div>
       <div className="h-full flex flex-col pl-3">
