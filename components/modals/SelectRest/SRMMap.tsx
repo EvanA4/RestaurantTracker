@@ -26,38 +26,51 @@ function SRMMap() {
   const isMarkerOpen = useRef(false);
   const [map, setMap] = useState<Map | undefined>(undefined);
 
+  async function refreshRests(toSend: {
+    searchStr: string;
+    lat: number;
+    lng: number;
+    cuisine: string;
+    restrictions: string[];
+  }) {
+    const rawRes = await fetch("/api/search", {
+      method: "POST",
+      body: JSON.stringify(toSend),
+    });
+    const res: Restaurant[] = await rawRes.json();
+    // console.log(res);
+    setRests(res);
+  }
+
   async function handleSearch() {
     console.log("Searching!");
     if (map) {
       const mapCenter = map.getCenter();
-      console.log({
+      const toSend = {
         searchStr: searchStr,
         lat: mapCenter.lat,
         lng: mapCenter.lng,
         cuisine: cuisines[selCuisine],
         restrictions: selRestricts
           .map((val, idx) => (val ? restrictions[idx] : undefined))
-          .filter((val) => val),
-      });
+          .filter((val) => val !== undefined),
+      };
+      refreshRests(toSend);
     }
   }
 
   async function handleClick(mouseLat: number, mouseLng: number) {
     if (!isMarkerOpen.current) {
-      const rawRes = await fetch("/api/search", {
-        method: "POST",
-        body: JSON.stringify({
-          lat: mouseLat,
-          lng: mouseLng,
-          cuisine: cuisines[selCuisine],
-          restrictions: selRestricts
-            .map((val, idx) => (val ? restrictions[idx] : undefined))
-            .filter((val) => val),
-        }),
-      });
-      const res: Restaurant[] = await rawRes.json();
-      // console.log(res);
-      setRests(res);
+      const toSend = {
+        searchStr: "",
+        lat: mouseLat,
+        lng: mouseLng,
+        cuisine: cuisines[selCuisine],
+        restrictions: selRestricts
+          .map((val, idx) => (val ? restrictions[idx] : undefined))
+          .filter((val) => val !== undefined),
+      };
+      refreshRests(toSend);
     }
   }
 
