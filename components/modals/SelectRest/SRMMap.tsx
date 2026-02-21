@@ -143,22 +143,3 @@ function SRMMap() {
 }
 
 export default SRMMap;
-
-/*
-import { useMap } from "react-leaflet";
-import { useEffect } from "react";
-
-function GetCenter() {
-  const map = useMap();
-
-  useEffect(() => {
-    const center = map.getCenter();
-    console.log("Latitude:", center.lat);
-    console.log("Longitude:", center.lng);
-  }, [map]);
-
-  return null;
-}
-
-subcomponent
-*/
