@@ -61,9 +61,7 @@ export const DELETE = async function (
     );
   }
 
-  const review = await ReviewModel.findOneAndDelete({
-    reviewId: reviewId,
-  });
+  const review = await ReviewModel.findByIdAndDelete(reviewId);
 
   return NextResponse.json({
     message: "Successfully deleted a review",
