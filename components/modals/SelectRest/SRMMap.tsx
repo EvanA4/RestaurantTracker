@@ -33,7 +33,7 @@ function SRMMap() {
     cuisine: string;
     restrictions: string[];
   }) {
-    const rawRes = await fetch("/api/search", {
+    const rawRes = await fetch("/api/poi", {
       method: "POST",
       body: JSON.stringify(toSend),
     });

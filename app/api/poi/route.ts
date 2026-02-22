@@ -1,6 +1,5 @@
 import { MapBoxResponse } from "@/types/mapbox/lookupResponse";
 import { Restaurant } from "@/types/restaurant";
-import { writeFileSync } from "fs";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async function (req: NextRequest) {
