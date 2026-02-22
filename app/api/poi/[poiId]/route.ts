@@ -29,7 +29,7 @@ export const GET = async function (
   }
 
   const limited: Restaurant = {
-    id: res.features[0].properties.mapbox_id,
+    mapbox_id: res.features[0].properties.mapbox_id,
     name: res.features[0].properties.name,
     website: res.features[0].properties.metadata?.website,
     phone: res.features[0].properties.metadata?.phone,
@@ -55,7 +55,7 @@ export const GET = async function (
   }
 
   const complete = {
-    id: res.features[0].properties.mapbox_id,
+    mapbox_id: res.features[0].properties.mapbox_id,
     name: res.features[0].properties.name,
     website: res.features[0].properties.metadata?.website,
     phone: res.features[0].properties.metadata?.phone,
@@ -66,7 +66,10 @@ export const GET = async function (
 
   // The attempt to fetch more complete data may have failed
   // If id's differ, ALWAYS return the limited object's data
-  return NextResponse.json(complete.id == limited.id ? complete : limited, {
-    status: 200,
-  });
+  return NextResponse.json(
+    complete.mapbox_id == limited.mapbox_id ? complete : limited,
+    {
+      status: 200,
+    },
+  );
 };

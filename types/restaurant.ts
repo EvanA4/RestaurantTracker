@@ -1,5 +1,5 @@
 export type Restaurant = {
-  id: string;
+  mapbox_id: string;
   name: string;
   website?: string;
   phone?: string;
