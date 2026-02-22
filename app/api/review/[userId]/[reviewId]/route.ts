@@ -10,17 +10,13 @@ export const PUT = async function (
   { params }: { params: { userId: string; reviewId: string } },
 ) {
   await dbConnect();
-  const { userId, reviewId } = params;
+  const { userId, reviewId } = await params;
   const body = await req.json();
   const { rating, description } = body;
 
-  if (!userId) {
-    return NextResponse.json({ error: "User ID is required" }, { status: 400 });
-  }
-
-  if (!reviewId) {
+  if (!userId || !reviewId) {
     return NextResponse.json(
-      { error: "Review ID is required" },
+      { error: "User ID and Review ID is required" },
       { status: 400 },
     );
   }
@@ -36,10 +32,8 @@ export const PUT = async function (
     );
   }
 
-  const review = await ReviewModel.findOneAndUpdate({
-    ...body,
-    userId: userId,
-    _id: reviewId,
+  const review = await ReviewModel.findOneAndUpdate({ _id: reviewId }, body, {
+    returnDocument: "after",
   });
 
   return NextResponse.json({
@@ -54,7 +48,7 @@ export const DELETE = async function (
   { params }: { params: { userId: string; reviewId: string } },
 ) {
   await dbConnect();
-  const { userId, reviewId } = params;
+  const { userId, reviewId } = await params;
 
   if (!userId) {
     return NextResponse.json({ error: "User ID is required" }, { status: 400 });
