@@ -85,7 +85,7 @@ function SRMMap() {
 
   return (
     <div className="h-full">
-      <div className="py-4 px-4 bg-neutral-200 flex justify-between">
+      <div className="py-4 px-4 bg-neutral-200 flex justify-between h-[30%]">
         <div className="flex w-[60%] rounded-lg overflow-hidden shadow-md h-fit">
           <input
             type="text"
@@ -114,30 +114,32 @@ function SRMMap() {
           />
         </div>
       </div>
-      <MapContainer
-        center={[35.95077372972164, -83.93390908189826]}
-        zoom={14}
-        scrollWheelZoom={true}
-        className="w-full h-full"
-      >
-        <TileLayer
-          // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {rests.map((rest, idx) => (
-          <Marker position={[rest.lat, rest.lng]} key={idx}>
-            <Popup>
-              <RestMarker rest={rest} />
-            </Popup>
-          </Marker>
-        ))}
-        <RestSubcomponent
-          setMap={setMap}
-          onClick={handleClick}
-          onPopupOpen={handlePopupOpen}
-          onPopupClose={handlePopupClose}
-        />
-      </MapContainer>
+      <div className="h-[70%]">
+        <MapContainer
+          center={[35.95077372972164, -83.93390908189826]}
+          zoom={14}
+          scrollWheelZoom={true}
+          className="h-full"
+        >
+          <TileLayer
+            // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {rests.map((rest, idx) => (
+            <Marker position={[rest.lat, rest.lng]} key={idx}>
+              <Popup>
+                <RestMarker rest={rest} />
+              </Popup>
+            </Marker>
+          ))}
+          <RestSubcomponent
+            setMap={setMap}
+            onClick={handleClick}
+            onPopupOpen={handlePopupOpen}
+            onPopupClose={handlePopupClose}
+          />
+        </MapContainer>
+      </div>
     </div>
   );
 }
