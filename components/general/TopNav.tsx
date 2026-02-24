@@ -47,6 +47,7 @@ function TopNav() {
             height={438}
             alt="Savorly logo"
             unoptimized
+            priority
             className="h-full w-auto pl-3 object-contain"
           />
         </Link>

@@ -7,7 +7,7 @@ function RestMarker(props: { rest: Restaurant }) {
   const { rest } = props;
   return (
     <div className="w-[200px] pb-3">
-      <a href={`/restaurant?id=${rest.id}`}>
+      <a href={`/restaurant?id=${rest.mapboxId}`}>
         <span className="text-xl m-0 p-0 block text-black">{rest.name}</span>
       </a>
       {rest.phone && (

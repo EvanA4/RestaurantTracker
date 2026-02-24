@@ -1,10 +1,19 @@
+import { TagDocument } from "@/models/Tag";
+import { IImage } from "./imagedb/image";
+import { Document } from "mongoose";
+
 export type Review = {
-  user_id: string;
-  restaurant_id: string;
+  userId: string;
+  restaurantId: string;
   rating: number;
   description: string;
-  photos: string[];
-  created_at: string;
-  updated_at: string;
-  tags: string[];
 };
+
+export type PopulatedReview = {
+  userId: string;
+  restaurantId: string;
+  rating: number;
+  description: string;
+  images: IImage[];
+  tags: TagDocument[];
+} & Document;

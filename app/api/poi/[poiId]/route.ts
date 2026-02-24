@@ -1,73 +1,28 @@
-import { MapBoxResponse } from "@/types/mapbox/lookupResponse";
-import { Restaurant } from "@/types/restaurant";
+import { getRestaurantById } from "@/utils/handlers/restaurant";
 import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async function (
   req: NextRequest,
   { params }: { params: { poiId: string } },
 ) {
-  /*
-        Look up restaurant by mapbox_id! Two steps:
-            1. Use MapBox's limited mapbox_id lookup API (doesn't include website or phone)
-            2. Use resulting coords in searchBox for complete restaurant obj
-    */
-
-  // Get basic restaurant data
   const { poiId } = await params;
-  let rawRes = await fetch(
-    `https://api.mapbox.com/search/searchbox/v1/retrieve/${poiId}?` +
-      new URLSearchParams({
-        access_token: process.env.MAPBOX_KEY!,
-        session_token: "",
-      }),
-  );
-  let res: MapBoxResponse = await rawRes.json();
-  // console.log(res);
-
-  if (!res.features) {
-    return NextResponse.json({}, { status: 200 });
+  const restaurant = await getRestaurantById(poiId);
+  if (!restaurant) {
+    return NextResponse.json(
+      {
+        message: "Failed to retrieve restaurant.",
+      },
+      {
+        status: 200,
+      },
+    );
   }
 
-  const limited: Restaurant = {
-    mapbox_id: res.features[0].properties.mapbox_id,
-    name: res.features[0].properties.name,
-    website: res.features[0].properties.metadata?.website,
-    phone: res.features[0].properties.metadata?.phone,
-    lng: res.features[0].geometry.coordinates[0],
-    lat: res.features[0].geometry.coordinates[1],
-  };
-  // console.log(limited);
-
-  // Use limited data to try to fetch more data
-  rawRes = await fetch(
-    `https://api.mapbox.com/search/searchbox/v1/category/restaurant?` +
-      new URLSearchParams({
-        access_token: process.env.MAPBOX_KEY!,
-        limit: "1",
-        proximity: `${limited.lng},${limited.lat}`,
-      }),
-  );
-  res = await rawRes.json();
-  // console.log(res);
-
-  if (!res.features) {
-    return NextResponse.json({}, { status: 200 });
-  }
-
-  const complete = {
-    mapbox_id: res.features[0].properties.mapbox_id,
-    name: res.features[0].properties.name,
-    website: res.features[0].properties.metadata?.website,
-    phone: res.features[0].properties.metadata?.phone,
-    lng: res.features[0].geometry.coordinates[0],
-    lat: res.features[0].geometry.coordinates[1],
-  };
-  // console.log(complete);
-
-  // The attempt to fetch more complete data may have failed
-  // If id's differ, ALWAYS return the limited object's data
   return NextResponse.json(
-    complete.mapbox_id == limited.mapbox_id ? complete : limited,
+    {
+      message: "Successfully retrieved restaurant!",
+      restaurant,
+    },
     {
       status: 200,
     },

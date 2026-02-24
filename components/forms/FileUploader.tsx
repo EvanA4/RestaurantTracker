@@ -132,7 +132,7 @@ export default function FileUploader(props: FileUploaderProps) {
           "w-full h-full rounded-lg flex flex-col items-center justify-center gap-5 border border-dashed p-10 " +
           (isDragging
             ? "bg-[#eaeaea] border-neutral-400"
-            : "bg-neutral-200 hover:bg-[#eaeaea] border-neutral-600 hover:border-neutral-400")
+            : "bg-neutral-100 hover:bg-[#eaeaea] border-neutral-600 hover:border-neutral-400")
         }
       >
         <Image

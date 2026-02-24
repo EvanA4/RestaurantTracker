@@ -77,6 +77,8 @@ try {
 
 ### Average Across Table
 
+Compute average age of all people named John:
+
 ```typescript
 const result = await Student.aggregate([
   { $match: { name: "John" } },
