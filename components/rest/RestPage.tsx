@@ -12,7 +12,7 @@ import { PopulatedReview } from "@/types/review";
 
 function RestPage() {
   const [showReviewModal, setShowReviewModal] = useState(false);
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
   const [review, setReview] = useState<PopulatedReview>();
   const [rest, setRest] = useState<Restaurant>({
     name: "Loading...",
@@ -32,6 +32,7 @@ function RestPage() {
     if (!res.restaurant) {
       router.back();
     }
+
     setRest(res.restaurant);
   }
 
@@ -64,14 +65,16 @@ function RestPage() {
   }
 
   useEffect(() => {
-    if (searchParams && router && user) {
+    if (searchParams && router && !isLoading) {
       if (!searchParams.get("id")) {
         router.back();
       }
       fetchRest();
-      checkForReview();
+      if (user) {
+        checkForReview();
+      }
     }
-  }, [searchParams, router, user]);
+  }, [searchParams, router, user, isLoading]);
 
   return (
     <div className="min-h-full flex flex-col gap-5 md:gap-10">
