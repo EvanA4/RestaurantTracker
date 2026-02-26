@@ -44,7 +44,7 @@ export const POST = async function (req: NextRequest) {
 
   if (res.features) {
     const restaurants: Restaurant[] = res.features.map((val) => ({
-      mapbox_id: val.properties.mapbox_id,
+      mapboxId: val.properties.mapbox_id,
       name: val.properties.name,
       website: val.properties.metadata?.website,
       phone: val.properties.metadata?.phone,
