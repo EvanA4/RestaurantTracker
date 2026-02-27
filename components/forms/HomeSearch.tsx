@@ -22,7 +22,7 @@ function HomeSearch() {
           onChange={(e) => setSearchStr(e.target.value)}
         />
         <button
-          className="bg-blue-600 hover:bg-blue-500 px-3 py-2 cursor-pointer text-white"
+          className="bg-blue-300 hover:bg-blue-700 px-3 py-2 cursor-pointer text-white"
           onClick={handleSearch}
         >
           Search

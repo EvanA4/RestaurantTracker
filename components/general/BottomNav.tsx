@@ -29,7 +29,7 @@ function BottomNav() {
             href={"/posts"}
             className="flex hover:bg-neutral-200 transition-colors duration-200 pt-[2px] border-b-2 border-b-neutral-100 hover:border-b-blue-500 items-center px-3 z-20"
           >
-            Profile
+            Posts
           </Link>
         </div>
       </div>
