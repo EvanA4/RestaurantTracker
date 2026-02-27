@@ -17,6 +17,7 @@ function ReviewModal(props: {
   const { user } = useUser();
   const searchParams = useSearchParams();
   const [tags, setTags] = useState<string[]>([]);
+  const [titleInput, setTitleInput] = useState<string>("");
   const [descInput, setDescInput] = useState<string>("");
   const [ratingInput, setRatingInput] = useState<number>(0);
   const [imagesInput, setImagesInput] = useState<File[]>([]);
@@ -40,6 +41,7 @@ function ReviewModal(props: {
         formData.append("images", imagesInput[idx]);
       }
       formData.append("description", descInput);
+      formData.append("title", titleInput);
       formData.append("rating", ratingInput.toString());
       for (const idx in tags) {
         formData.append("tags", tags[idx]);
@@ -88,6 +90,7 @@ function ReviewModal(props: {
     console.log(res);
 
     setTags([]);
+    setTitleInput("");
     setDescInput("");
     setRatingInput(0);
     setImagesInput([]);
@@ -100,6 +103,12 @@ function ReviewModal(props: {
     <Modal visible={props.visible} setVisibile={props.setVisibile} centered>
       <div className="w-[95vw] md:w-[80vw] 3xl:w-[50vw] overflow-scroll bg-white shadow-xl rounded-xl border border-neutral-300 p-5 flex flex-col gap-5">
         <p className="text-xl text-center">Create Review</p>
+        <input
+          className="bg-white shadow-md p-3 w-full rounded-lg border border-neutral-300"
+          placeholder="Title"
+          onChange={(e) => setTitleInput(e.target.value)}
+          value={titleInput}
+        />
         <textarea
           className="bg-white resize-none shadow-md p-3 w-full rounded-lg border border-neutral-300"
           placeholder="Description"

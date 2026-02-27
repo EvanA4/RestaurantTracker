@@ -20,6 +20,10 @@ const reviewSchema = new Schema(
       type: String,
       required: true,
     },
+    title: {
+      type: String,
+      required: true,
+    },
     // photos: {
     //   type: [Schema.Types.ObjectId],
     //   ref: "Images",

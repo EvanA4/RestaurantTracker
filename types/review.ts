@@ -7,6 +7,7 @@ export type Review = {
   restaurantId: string;
   rating: number;
   description: string;
+  title: string;
 };
 
 export type PopulatedReview = {
@@ -14,6 +15,7 @@ export type PopulatedReview = {
   restaurantId: string;
   rating: number;
   description: string;
+  title: string;
   images: IImage[];
   tags: TagDocument[];
 } & Document;

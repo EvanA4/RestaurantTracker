@@ -29,6 +29,12 @@ export const PUT = async function (
 
   // images are optional
 
+  // title
+  const titleArr = in_fd.getAll("title");
+  if (titleArr.length == 0 || !titleArr[0]) {
+    return NextResponse.json({ message: "Title is required" }, { status: 400 });
+  }
+
   // descripton
   const descArr = in_fd.getAll("description");
   if (descArr.length == 0 || !descArr[0]) {
@@ -92,6 +98,7 @@ export const PUT = async function (
 
   // Actually create the review, tags, and images
   const toUpdate = {
+    title: titleArr[0] as string,
     description: descArr[0] as string,
     rating: rating,
     userId: userId,
@@ -197,6 +204,7 @@ export const PUT = async function (
       restaurantId: review.restaurantId,
       rating: toUpdate.rating,
       description: toUpdate.description,
+      title: toUpdate.title,
       _id: review._id,
       tags,
       images,
