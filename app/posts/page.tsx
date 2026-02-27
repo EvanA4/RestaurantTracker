@@ -1,19 +1,33 @@
-"use client";
-
 import Nav from "@/components/general/Nav";
+import PostSearch from "@/components/forms/PostSearch";
+import UserInfo from "@/components/profile/posts/UserInfo";
+import PostReviewCard from "@/components/rest/PostReviewCard";
 import React from "react";
 
-function Profile() {
+function Posts() {
+  const postReviewCardList = [];
+  for (let i = 0; i < 11; ++i) {
+    postReviewCardList.push(<PostReviewCard rating={i / 2} />);
+  }
+
   return (
-    <div className="h-full relative">
-      <div className="h-full flex items-center justify-center">
-        <p>Profile page</p>
+    <div className="h-screen flex flex-col">
+      {/* User's search parameters */}
+      <PostSearch />
+
+      {/* Scrollable Section (User's Info and Posts Display) */}
+      <div className="flex-1 overflow-y-auto">
+        <UserInfo />
+
+        <div className="flex xl:flex-wrap gap-5 pb-3 px-10 bg-[#f2f2f2]">
+          {...postReviewCardList}
+        </div>
       </div>
 
-      {/* Bottom Navbar */}
+      {/* Navbar */}
       <Nav />
     </div>
   );
 }
 
-export default Profile;
+export default Posts;
